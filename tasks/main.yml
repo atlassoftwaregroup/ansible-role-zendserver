@@ -12,7 +12,7 @@
     sudo: yes
 
   - name: Add Zend package repository
-    apt_repository: repo='deb http://repos.zend.com/zend-server/{{ zendserver_version }}/deb server non-free' state=present
+    apt_repository: repo='deb http://repos.zend.com/zend-server/{{ zendserver_version }}/deb_ssl1.0 server non-free' state=present
     sudo: yes
 
   - name: Install Zend Server
