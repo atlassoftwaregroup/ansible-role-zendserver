@@ -1,7 +1,7 @@
 Role Name
 ========
 
-This Ansible role lets you install Zend Server on the specified host
+This Ansible role lets you install Zend Server on the specified host. This is a fork of rtuin.zendserver that installs the ssl version for Zend Server 6.3.
 
 Requirements
 ------------
