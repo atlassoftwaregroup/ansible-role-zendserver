@@ -28,3 +28,7 @@
     file: state=absent path=/etc/profile.d/zend-server.sh
     sudo: yes
     when: php_cli_in_path == false
+  - name: enable Apache SSL module
+    command: a2enmod ssl
+    args:
+      creates: /etc/apache2/mods-enabled/ssl.load
