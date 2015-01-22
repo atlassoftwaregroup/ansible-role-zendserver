@@ -7,13 +7,19 @@
    - python-pycurl
   sudo: yes
 - name: Download Zend repository PGP key
-  apt_key: id=F7D2C623 url=http://repos.zend.com/zend.key state=present
+  apt_key:
+    id: "F7D2C623"
+    url: "http://repos.zend.com/zend.key state=present"
   sudo: yes
 - name: Add Zend package repository
-  apt_repository: repo='deb http://repos.zend.com/zend-server/{{ zendserver_version }}/deb_ssl1.0 server non-free' state=present
+  apt_repository:
+    repo: "deb http://repos.zend.com/zend-server/{{ zendserver_version }}/deb_ssl1.0 server non-free"
+    state: "present"
   sudo: yes
 - name: Install Zend Server
-  apt: update_cache=yes pkg=zend-server-php-{{ php_version }}
+  apt:
+    update_cache: "yes"
+    pkg: "zend-server-php-{{ php_version }}"
   sudo: yes
 - name: Create entry in bash_profile
   template:
@@ -22,7 +28,8 @@
   sudo: yes
   when: php_cli_in_path == true
 - name: Make sure there is no entry in profile.d when selected so
-  file: state=absent path=/etc/profile.d/zend-server.sh
+  file:
+    state: "absent path=/etc/profile.d/zend-server.sh"
   sudo: yes
   when: php_cli_in_path == false
 - name: enable Apache SSL module
